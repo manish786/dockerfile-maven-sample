@@ -5,7 +5,7 @@ Build and push an image to local docker registry
  - Have a docker registry set up at port 5000; \
   docker run -d -p 5000:5000 --restart=always registrydev registry:2
   
- - mvn deploy -DskipTest
+ - mvn deploy -DskipTests
  
  Image will be built and pushed to local registry.
  
