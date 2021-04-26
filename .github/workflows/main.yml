@@ -40,5 +40,5 @@ jobs:
         with:
           image-ref: 'docker.io/manishakam/dockerfile-maven-test:${{github.sha}}'
           format: template
-          template: '@contrib/sarif.tpl'
+          template: '@/contrib/sarif.tpl'
           output: 'trivy-results.sarif'
