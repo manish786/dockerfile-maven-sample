@@ -23,8 +23,14 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout code 
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - name: Set up JDK 09
+        uses: actions/setup-java@v2
+        with:
+          java-version: '9'
+          distribution: 'adopt'
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
 
       - name: Build and Image from Dockerfile 
         run: docker build -t docker.io/manishakam/dockerfile-maven-test:${{github.sha}} .
